@@ -23,6 +23,6 @@ Add a line in LAMMPS input file:
 fix 1 all pyforce C H O
 ```
 
-Also, a Python program `force.py`, which reads the XYZ format file `comb.xyz` and writes forces `forces.dat`, should be put in the folder. 
+Also, a Python program `force.py`, which reads the XYZ format file `comb.xyz` and writes tge forces file `force.dat`, should be put in the folder. 
 
-Example: [Example 1](https://github.com/njzjz/kconmd/blob/master/examples/example.py) [Example 2](https://github.com/njzjz/AIMDFragmentation/blob/master/examples/example.py)
+**Examples**: [Example 1](https://github.com/njzjz/kconmd/blob/master/examples/example.py) [Example 2](https://github.com/njzjz/AIMDFragmentation/blob/master/examples/example.py)
