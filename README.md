@@ -11,9 +11,9 @@ Download LAMMPS first, then
 
 ```bash
 git clone https://github.com/njzjz/Pyforce.git
-cp -r Pyforce/PYFORCE/ $LAMMPS_DIR/src
+cp -r Pyforce/USER-PYFORCE/ $LAMMPS_DIR/src
 cd $LAMMPS_DIR/src
-make yes-pyforce
+make yes-user-pyforce
 make serial
 ```
 
