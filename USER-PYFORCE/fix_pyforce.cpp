@@ -41,7 +41,8 @@ FixPyforce::FixPyforce(LAMMPS *lmp, int narg, char **arg) :
       typenames[itype] = new char[n];
       strcpy(typenames[itype],arg[itype+2]);
     }
-
+  if(comm->me>0)
+	  error->one(FLERR,"MPI is not supported by Pyforce now!");
   vector_flag = 1;
   size_vector = 3;
   global_freq = 1;
