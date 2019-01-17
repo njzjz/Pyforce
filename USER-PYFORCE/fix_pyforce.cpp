@@ -50,7 +50,6 @@ FixPyforce::FixPyforce(LAMMPS *lmp, int narg, char **arg) :
 
   force_flag = 0;
   foriginal[0] = foriginal[1] = foriginal[2] = 0.0;
-
 }
 
 /* ---------------------------------------------------------------------- */
@@ -74,7 +73,6 @@ void FixPyforce::init()
   for (int i = 0; i < modify->nfix; i++)
     if (strcmp(modify->fix[i]->style,"pyforce") == 0) count++;
   if (count > 1) error->all(FLERR,"More than one fix pyforce");
-
 }
 
 /* ---------------------------------------------------------------------- */
