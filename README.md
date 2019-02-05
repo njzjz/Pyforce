@@ -1,4 +1,7 @@
 # Pyforce
+
+[![Build Status](https://travis-ci.com/njzjz/Pyforce.svg?branch=master)](https://travis-ci.com/njzjz/Pyforce)
+
 Pyforce is a custom package for [LAMMPS](http://lammps.sandia.gov), adding a fix command for calculating forces with Python.
 
 **Author**: Jinzhe Zeng
@@ -18,10 +21,13 @@ make serial
 ```
 
 ## Usage
+
 Add a line in LAMMPS input file:
+
 ```
 fix 1 all pyforce C H O
 ```
+
 where C, H and O are names of elements.
 
 Also, a Python program `force.py`, which reads the XYZ format file `comb.xyz` and writes the forces file `force.dat`, should be put in the folder. 
