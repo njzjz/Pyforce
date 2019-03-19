@@ -17,7 +17,6 @@
 #include "update.h"
 #include "modify.h"
 #include "comm.h"
-#include "respa.h"
 #include "error.h"
 #include <fstream>
 #include <iostream>
@@ -58,7 +57,6 @@ int FixPyvelocity::setmask()
 {
   int mask = 0;
   mask |= END_OF_STEP;
-  mask |= END_OF_STEP_RESPA;
   return mask;
 }
 
@@ -81,14 +79,6 @@ void FixPyvelocity::setup(int vflag)
 {
   if (strstr(update->integrate_style,"verlet"))
     end_of_step(vflag);
-  else {
-    int nlevels_respa = ((Respa *) update->integrate)->nlevels;
-    for (int ilevel = 0; ilevel < nlevels_respa; ilevel++) {
-      ((Respa *) update->integrate)->copy_flevel_f(ilevel);
-      end_of_step_respa(vflag,ilevel,0);
-      ((Respa *) update->integrate)->copy_f_flevel(ilevel);
-    }
-  }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -139,13 +129,6 @@ void FixPyvelocity::end_of_step(int vflag)
       v[i][1] = vtmp[3*i+1];
       v[i][2] = vtmp[3*i+2];
     }
-}
-
-/* ---------------------------------------------------------------------- */
-
-void FixPyvelocity::end_of_step_respa(int vflag, int ilevel, int iloop)
-{
-  end_of_step(vflag);
 }
 
 /* ----------------------------------------------------------------------

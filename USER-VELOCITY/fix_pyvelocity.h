@@ -31,7 +31,6 @@ class FixPyvelocity : public Fix {
   void init();
   void setup(int);
   void end_of_step(int);
-  void end_of_step_respa(int, int, int);
   double compute_vector(int);
 
  private:
