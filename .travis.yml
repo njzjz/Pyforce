@@ -2,8 +2,8 @@ language: cpp
 cache: ccache
 install:
     - git clone https://github.com/lammps/lammps lammps -b stable_12Dec2018 --depth=1
-    - cp -r USER-PYFORCE/ lammps/src
+    - cp -r USER-VELOCITY/ lammps/src
 script:
     - cd lammps/src
-    - make yes-user-pyforce
+    - make yes-user-velocity
     - make serial

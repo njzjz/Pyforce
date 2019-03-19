@@ -13,30 +13,30 @@
 
 #ifdef FIX_CLASS
 
-FixStyle(pyforce,FixPyforce)
+FixStyle(pyvelocity,FixPyvelocity)
 
 #else
 
-#ifndef LMP_FIX_PYFORCE_H
-#define LMP_FIX_PYFORCE_H
+#ifndef LMP_FIX_PYVELOCITY_H
+#define LMP_FIX_PYVELOCITY_H
 
 #include "fix.h"
 
 namespace LAMMPS_NS {
 
-class FixPyforce : public Fix {
+class FixPyvelocity : public Fix {
  public:
-  FixPyforce(class LAMMPS *, int, char **);
+  FixPyvelocity(class LAMMPS *, int, char **);
   int setmask();
   void init();
   void setup(int);
-  void post_force(int);
-  void post_force_respa(int, int, int);
+  void end_of_step(int);
+  void end_of_step_respa(int, int, int);
   double compute_vector(int);
 
  private:
-  int force_flag;
-  double foriginal[3],foriginal_all[3],ftmp[3];
+  int velocity_flag;
+  double voriginal[3],voriginal_all[3],vtmp[3];
   char **typenames;
 };
 
